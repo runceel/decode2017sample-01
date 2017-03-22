@@ -59,5 +59,15 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DecodeSampleApp01\DecodeSampleApp01.Droid\DecodeSampleApp01.Droid.csproj">
+      <Project>{318f040e-05da-4697-8903-ed00e28005aa}</Project>
+      <Name>DecodeSampleApp01.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DecodeSampleApp01\DecodeSampleApp01.iOS\DecodeSampleApp01.iOS.csproj">
+      <Project>{2d7ca5a8-bfdb-45a2-99b1-07a19be7be27}</Project>
+      <Name>DecodeSampleApp01.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
