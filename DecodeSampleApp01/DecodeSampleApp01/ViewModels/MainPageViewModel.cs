@@ -9,16 +9,31 @@ namespace DecodeSampleApp01.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
-        private string _title;
-        public string Title
+        private string inputText;
+
+        public string InputText
         {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
+            get { return this.inputText; }
+            set { this.SetProperty(ref this.inputText, value); }
         }
+
+        private string outputText;
+
+        public string OutputText
+        {
+            get { return this.outputText; }
+            set { this.SetProperty(ref this.outputText, value); }
+        }
+
+        public DelegateCommand ExecuteCommand { get; }
 
         public MainPageViewModel()
         {
-
+            this.ExecuteCommand = new DelegateCommand(() =>
+            {
+                var tokens = this.InputText.Split(',');
+                this.OutputText = $"{tokens[1]},{tokens[0]}";
+            });
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -28,8 +43,6 @@ namespace DecodeSampleApp01.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
         }
     }
 }

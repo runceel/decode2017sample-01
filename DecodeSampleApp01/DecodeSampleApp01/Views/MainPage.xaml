@@ -5,7 +5,11 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DecodeSampleApp01.Views.MainPage"
              Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
-  </StackLayout>
+    <StackLayout HorizontalOptions="Center"
+                 VerticalOptions="Center">
+        <Entry Text="{Binding InputText, Mode=TwoWay}" />
+        <Button Text="Execute"
+                Command="{Binding ExecuteCommand}" />
+        <Label Text="{Binding OutputText, Mode=TwoWay}" />
+    </StackLayout>
 </ContentPage>
